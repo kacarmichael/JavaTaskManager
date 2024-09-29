@@ -2,13 +2,14 @@ package ui.screens;
 
 import app.App;
 import ui.AppUI;
+import ui.MenuFactory;
 import ui.MenuScreen;
 import user.User;
 
 public class AddUserMenu extends MenuScreen {
     @Override
     public MenuScreen handleInput(int input) {
-        return null;
+        return MenuFactory.getMenu("MainMenu");
     }
 
     @Override

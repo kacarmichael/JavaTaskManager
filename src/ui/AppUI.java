@@ -7,6 +7,7 @@ public class AppUI {
 
     private static final Scanner scanner = new Scanner(System.in);
     private static MenuScreen currentScreen = MenuFactory.getMenu("MainMenu");
+    private static MenuScreen previousScreen;
 
     public static Scanner getScanner() {
         return AppUI.scanner;
@@ -16,7 +17,12 @@ public class AppUI {
         return AppUI.currentScreen;
     }
 
+    public static MenuScreen getPreviousScreen() {
+        return AppUI.previousScreen;
+    }
+
     public static void displayMenu(MenuScreen menu) {
+        AppUI.previousScreen = AppUI.currentScreen;
         AppUI.currentScreen = menu;
         AppUI.currentScreen.display();
     }

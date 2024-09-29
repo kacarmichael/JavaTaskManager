@@ -15,7 +15,7 @@ public class App {
         while (true) {
             try {
                 AppUI.displayMenu(AppUI.getCurrentScreen());
-                AppUI.handleInput();
+                AppUI.getCurrentScreen().handleInput(0);
             } catch (Exception e) {
                 return;
             }
