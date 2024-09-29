@@ -1,25 +1,22 @@
 package ui;
 
-import app.AppContext;
 import ui.screens.*;
 
 import java.util.HashMap;
-import java.util.Scanner;
 
 public class MenuFactory {
-    private HashMap<String, MenuScreen> screens;
-    private static AppContext context;
-    private static Scanner scanner;
+    private static final HashMap<String, MenuScreen> screens  = new HashMap<>() {{
+        put("LoginMenu", new LoginMenu());
+        put("MainMenu", new MainMenu());
+        put("RegisterMenu", new RegisterMenu());
+        put("AddUserMenu", new AddUserMenu());
+        put("AddProfileMenu", new AddProfileMenu());
+        put("AddGoalMenu", new AddGoalMenu());
+        put("AddTaskMenu", new AddTaskMenu());
+        put("ShowObjectsMenu", new ShowObjectsMenu());
+    }};
 
-    public MenuFactory(AppContext context, Scanner scanner) {
-        scanner = scanner;
-        context = context;
-        screens = new HashMap<>();
-        screens.put("LoginMenu", new LoginMenu(scanner, this));
-        screens.put("MainMenu", new MainMenu(scanner, this));
-    }
-
-    public MenuScreen getMenu(String name) {
+    public static MenuScreen getMenu(String name) {
         return screens.get(name);
     }
 }

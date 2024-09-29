@@ -3,12 +3,10 @@ package ui.screens;
 import ui.MenuFactory;
 import ui.MenuScreen;
 
-import java.util.Scanner;
-
 public class LoginMenu extends MenuScreen {
 
-    public LoginMenu(Scanner scanner, MenuFactory menuFactory) {
-        super(scanner, menuFactory);
+    public LoginMenu() {
+        super();
         options.add("Log In");
         options.add("Create Account");
         options.add("Exit");
@@ -17,7 +15,7 @@ public class LoginMenu extends MenuScreen {
     @Override
     public MenuScreen handleInput(int input) {
         if (input == 1) {
-            return new MainMenu(getScanner(), getMenuFactory());
+            return MenuFactory.getMenu("LoginMenu");
         }
         return null;
     }

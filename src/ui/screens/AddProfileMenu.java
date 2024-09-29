@@ -1,30 +1,36 @@
 package ui.screens;
 
+
 import app.AppContext;
+import ui.AppUI;
 import ui.MenuScreen;
 
+public class AddProfileMenu extends MenuScreen {
 
-public class RegisterMenu extends MenuScreen {
-    public RegisterMenu() {
+    public AddProfileMenu() {
         super();
-        options.add("Register");
+        options.add("Add Profile");
         options.add("Back");
     }
 
     @Override
     public MenuScreen handleInput(int input) {
-        if (input == 1) {
-            return new MainMenu();
-        }
         return null;
     }
 
     @Override
     public void display() {
+        System.out.println("Add Profile");
+        addProfile();
+    }
+
+    public void addProfile() {
         clearScreen();
         if (AppContext.getCurrentUser() == null) {
             System.out.println("You must be logged in to do that");
+            return;
         }
         System.out.println("Enter profile name: ");
+        AppContext.getCurrentUser().addProfile(AppUI.getScanner().nextLine());
     }
 }

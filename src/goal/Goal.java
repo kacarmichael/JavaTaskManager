@@ -6,9 +6,13 @@ import java.util.*;
 
 public class Goal {
     private String name;
-    private List<Task> tasks = new ArrayList<Task>();
+    private final List<Task> tasks = new ArrayList<>();
 
     public Goal(String name) {
+        this.name = name;
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -17,6 +21,10 @@ public class Goal {
     }
 
     public List<Task> getTasks() { return this.tasks; }
+
+    public void addTask(String name) {
+        this.tasks.add(new Task(name));
+    }
 
     public String getName() { return this.name; }
 

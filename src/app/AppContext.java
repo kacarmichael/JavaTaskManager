@@ -1,51 +1,43 @@
 package app;
 
-import User.User;
+import user.User;
 import goal.Goal;
 import profile.Profile;
 import task.Task;
 
 public class AppContext {
 
-    private User currentUser;
-    private boolean isLoggedIn;
-    private Profile currentProfile;
-    private Goal currentGoal;
-    private Task currentTask;
+    private static User currentUser;
+    private static boolean isLoggedIn;
+    private static Profile currentProfile;
+    private static Goal currentGoal;
+    private static Task currentTask;
 
-    public AppContext() {
-        currentUser = null;
-        isLoggedIn = false;
-        currentProfile = null;
-        currentGoal = null;
-        currentTask = null;
-    }
-
-    public User getCurrentUser() {
-        return currentUser;
+    public static User getCurrentUser() {
+        return AppContext.currentUser;
     }
 
     public void setCurrentUser(User user) {
-        currentUser = user;
+        AppContext.currentUser = user;
     }
 
     public boolean isLoggedIn() {
-        return isLoggedIn;
+        return AppContext.isLoggedIn;
     }
 
     public void setLoggedIn(boolean loggedIn) {
-        isLoggedIn = loggedIn;
+        AppContext.isLoggedIn = loggedIn;
     }
 
-    public Profile getCurrentProfile() {
-        return currentProfile;
+    public static Profile getCurrentProfile() {
+        return AppContext.currentProfile;
     }
 
     public void setCurrentProfile(Profile profile) {
         currentProfile = profile;
     }
 
-    public Goal getCurrentGoal() {
+    public static Goal getCurrentGoal() {
         return currentGoal;
     }
 

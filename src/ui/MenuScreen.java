@@ -1,29 +1,12 @@
 package ui;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class MenuScreen {
     public ArrayList<String> options;
-    private static Scanner scanner;
-    private static MenuFactory menuFactory;
 
-    public MenuScreen(Scanner scanner, MenuFactory menuFactory) {
-        menuFactory = menuFactory;
-        options = new ArrayList<String>();
-        scanner = scanner;
-    }
-
-    public Scanner getScanner() {
-        return scanner;
-    }
-
-    public MenuFactory getMenuFactory() {
-        return menuFactory;
-    }
-
-    public void setMenuFactory(MenuFactory newMenuFactory) {
-        menuFactory = newMenuFactory;
+    public MenuScreen() {
+        options = new ArrayList<>();
     }
 
     public void listOptions() {
